@@ -2,6 +2,8 @@ Dungeon Siege 1 / LOA – Invisible UI Cursor Fix
 
 An issue exists where the mouse cursor in Dungeon Siege and Legends of Aranna disappears during the game when hovered over any 2D element, such as inventory, menus & tooltips. The 3d world cursor still works. 
 
+This fix disables the game engine from hiding the windows mouse cursor.
+
 The two files are patched at the below locations 
 File	File offset	Original bytes	Patched bytes
 DSLOA.exe	0x1526E	0F 8E B6 00 00 00	E9 B7 00 00 00 90

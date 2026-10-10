@@ -23,6 +23,9 @@ If your bytes don't match or the game crashes, your exe is a different build. Se
 The two files are patched at the below locations 
 File	File offset	Original bytes	Patched bytes
 DSLOA.exe	0x1526E	0F 8E B6 00 00 00	E9 B7 00 00 00 90
+DSLOA.exe	0x2629BA	55 8B EC	C2 04 00
+
+DungeonSiege.exe	0x249FDD	55 8B EC	C2 04 00
 DungeonSiege.exe	0x14CAF	0F 8E B6 00 00 00	E9 B7 00 00 00 90
 
 When the mouse is over the game window, the game tells Windows to show no cursor (SetCursor(NULL) in its WM_SETCURSOR handler) and draws its own instead. That self-drawn UI cursor fails. This patch skips the SetCursor(NULL) call, so Windows shows its normal cursor. It only works in windowed mode.

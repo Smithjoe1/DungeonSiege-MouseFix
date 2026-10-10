@@ -34,4 +34,4 @@ If your bytes don't match or the game crashes, your exe is a different build:
 
 When the mouse is over the game window, the game tells Windows to show no cursor (`SetCursor(NULL)` in its `WM_SETCURSOR` handler) and draws its own instead. That self-drawn UI cursor fails. This patch skips the `SetCursor(NULL)` call, so Windows shows its normal cursor. It only works in windowed mode.
 
-The second patch makes the game's own cursor-drawing routine return immediately, so the sword cursor is never drawn. Dragged item icons are drawn separately, so they still follow the mouse.
+The second patch makes the game's own cursor-drawing routine return immediately, so the sword cursor is never drawn. Dragged item icons are drawn separately, so they still follow the mouse but the code to hide the cursor still fires and only the dragged object is shown.

@@ -21,22 +21,7 @@ You'll see the normal Windows arrow over the whole game. Left-clicks and item dr
 
 Each patch is listed as the bytes to search for and what they become. `xx` bytes are addresses that differ between the two files and are left unchanged (or, for `CALL` instructions, adjusted to point at the same function from the new location).
 
-### DSLOA.exe
-
-| Purpose | Original bytes | Patched bytes |
-|---|---|---|
-| Show the Windows cursor over the game (skip `SetCursor(NULL)`) | `39 7B 78 0F 8E B6 00 00 00` | `39 7B 78 E9 B7 00 00 00 90` |
-| Remove the game's sword cursor | `55 8B EC 81 EC 9C 00 00 00 53 56 8B D9 8D B3 44` | `C2 04 00 81 EC 9C 00 00 00 53 56 8B D9 8D B3 44` |
-| Don't hide the cursor at startup in fullscreen | `80 7D 74 00 74 07 57 FF 15` | `80 7D 74 00 EB 07 57 FF 15` |
-| Re-show the cursor when the window activates in fullscreen | `85 C0 7D F8 80 7B 74 00 0F 85 xx xx xx xx 6A 01 FF D6` | `85 C0 7D F8 80 7B 74 00 90 90 90 90 90 90 6A 01 FF D6` |
-| Don't capture the mouse just because the game is fullscreen | `38 41 74 74 06 F6 41 4C 01` | `38 41 74 EB 06 F6 41 4C 01` |
-| Don't warp the cursor to the screen centre in fullscreen | `80 79 74 00 74 4A 8B 81 C8 00 00 00` | `80 79 74 00 EB 4A 8B 81 C8 00 00 00` |
-| Left button no longer grabs the mouse (button handler) | `8B BE 0C 01 00 00 B8 80 0F 00 00 23 F8` | `8B BE 0C 01 00 00 B8 00 0F 00 00 23 F8` |
-| Left button no longer grabs the mouse (capture check) | `66 F7 81 0C 01 00 00 80 0F 75 0B` | `66 F7 81 0C 01 00 00 00 0F 75 0B` |
-| Middle/right drags hold the cursor at the click position instead of the screen centre | Block A (below) | Block A (below) |
-| Middle/right drags store the click position, and never hide the cursor | Block B (below) | Block B (below) |
-
-### DungeonSiege.exe
+### DSLOA.exe & DungeonSiege.exe
 
 | Purpose | Original bytes | Patched bytes |
 |---|---|---|
